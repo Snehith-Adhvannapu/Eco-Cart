@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 
 // Import our components
 import Header from "@/components/Header";
+import MainNavigation from "@/components/MainNavigation";
 import HeroSection from "@/components/HeroSection";
 import CategoryShortcuts from "@/components/CategoryShortcuts";
 import ProductGrid from "@/components/ProductGrid";
@@ -161,10 +162,11 @@ function HomePage() {
     }
   };
 
-  const handleCategorySelect = (categoryId: string) => {
+  const handleCategorySelect = (categoryId: string, subcategoryId?: string) => {
+    const categoryName = subcategoryId ? `${categoryId} > ${subcategoryId}` : categoryId;
     toast({
       title: "Category selected",
-      description: `Filtering products by ${categoryId}...`,
+      description: `Filtering products by ${categoryName}...`,
     });
   };
 
@@ -203,6 +205,8 @@ function HomePage() {
         isDarkMode={isDarkMode}
         onThemeToggle={() => setIsDarkMode(!isDarkMode)}
       />
+
+      <MainNavigation onCategorySelect={handleCategorySelect} />
 
       <main>
         <HeroSection onStartVoiceShopping={handleStartVoiceShopping} />

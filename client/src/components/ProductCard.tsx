@@ -53,7 +53,7 @@ export default function ProductCard({
   };
 
   return (
-    <Card className="group hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:-translate-y-2 overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+    <Card className="group hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-500 hover:-translate-y-2 overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <CardContent className="p-0">
         {/* Product Image */}
         <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
@@ -118,7 +118,7 @@ export default function ProductCard({
         <div className="p-4 space-y-3 transform group-hover:translate-y-[-2px] transition-transform duration-300">
           <div>
             <div className="text-sm text-muted-foreground font-medium">{brand}</div>
-            <h3 className="font-semibold text-foreground line-clamp-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200" data-testid={`text-product-name-${id}`}>
+            <h3 className="font-semibold text-foreground line-clamp-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-200" data-testid={`text-product-name-${id}`}>
               {name}
             </h3>
           </div>
@@ -155,7 +155,7 @@ export default function ProductCard({
           {/* Add to Cart Button with Hover Animation */}
           <Button
             data-testid={`button-add-to-cart-${id}`}
-            className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200"
+            className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200"
             onClick={() => onAddToCart(id)}
           >
             <ShoppingCart className="h-4 w-4 mr-2 group-hover:animate-bounce" />
