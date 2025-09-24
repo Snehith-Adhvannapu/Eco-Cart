@@ -73,6 +73,75 @@ const mockProducts: Product[] = [
     ecoFriendly: true,
     energyEfficient: true,
     inStock: true
+  },
+  {
+    id: "4",
+    name: "Refurbished Smartphone",
+    description: "High-performance refurbished smartphone with certified battery and eco-packaging",
+    price: 299.99,
+    originalPrice: 599.99,
+    image: electronicsImage1,
+    rating: 4.5,
+    reviews: 203,
+    carbonFootprint: 'low',
+    ecoFriendly: true,
+    energyEfficient: true,
+    inStock: true
+  },
+  {
+    id: "5",
+    name: "Wireless Charging Pad - Bamboo",
+    description: "Fast wireless charging pad made from sustainable bamboo with LED indicators",
+    price: 39.99,
+    originalPrice: 59.99,
+    image: electronicsImage2,
+    rating: 4.7,
+    reviews: 156,
+    carbonFootprint: 'low',
+    ecoFriendly: true,
+    energyEfficient: true,
+    inStock: true
+  },
+  {
+    id: "6",
+    name: "LED Smart Bulb Set",
+    description: "Energy-efficient smart LED bulbs with voice control and scheduling features",
+    price: 89.99,
+    originalPrice: 119.99,
+    image: electronicsImage3,
+    rating: 4.6,
+    reviews: 298,
+    carbonFootprint: 'low',
+    ecoFriendly: true,
+    energyEfficient: true,
+    inStock: true
+  },
+  {
+    id: "7",
+    name: "Recycled Plastic Phone Case",
+    description: "Durable phone case made from 100% ocean plastic with military-grade protection",
+    price: 24.99,
+    image: electronicsImage1,
+    rating: 4.3,
+    reviews: 187,
+    carbonFootprint: 'low',
+    ecoFriendly: true,
+    energyEfficient: false,
+    inStock: true
+  },
+  {
+    id: "8",
+    name: "Solar-Powered Bluetooth Speaker",
+    description: "Portable speaker with built-in solar panel and waterproof design",
+    price: 129.99,
+    originalPrice: 179.99,
+    image: electronicsImage2,
+    rating: 4.8,
+    reviews: 234,
+    carbonFootprint: 'low',
+    ecoFriendly: true,
+    energyEfficient: true,
+    inStock: true
   }
 ];
 

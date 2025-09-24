@@ -7,14 +7,15 @@ import {
   Heart, 
   Star, 
   Filter,
-  Leaf 
+  Leaf,
+  Shield
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-// Import stock images
-import menImage1 from "@assets/stock_images/men's_clothing_fashi_2689d772.jpg";
-import menImage2 from "@assets/stock_images/men's_clothing_fashi_cfdc0fca.jpg";
-import menImage3 from "@assets/stock_images/men's_clothing_fashi_472eecc8.jpg";
+// We'll use some of the existing images for now - this demonstrates real product usage
+import bambooBrushImage from "@assets/generated_images/Bamboo_toothbrush_product_2cae6240.png";
+import waterBottleImage from "@assets/generated_images/Reusable_water_bottle_c4f791d9.png";
+import organicShirtImage from "@assets/generated_images/Organic_cotton_t-shirt_e5e42f48.png";
 
 interface Product {
   id: string;
@@ -28,109 +29,97 @@ interface Product {
   carbonFootprint: 'low' | 'medium' | 'high';
   ecoFriendly: boolean;
   inStock: boolean;
+  childSafe?: boolean;
+  ageRange?: string;
 }
 
 const mockProducts: Product[] = [
   {
     id: "1",
-    name: "Organic Cotton T-Shirt",
-    description: "Comfortable organic cotton t-shirt made from sustainable materials",
-    price: 29.99,
-    originalPrice: 39.99,
-    image: menImage1,
-    rating: 4.5,
-    reviews: 124,
+    name: "Eco-Friendly Kids Bamboo Toothbrush Set",
+    description: "Soft bristles bamboo toothbrushes designed for children with fun colors",
+    price: 12.99,
+    originalPrice: 18.99,
+    image: bambooBrushImage,
+    rating: 4.8,
+    reviews: 156,
     carbonFootprint: 'low',
     ecoFriendly: true,
+    childSafe: true,
+    ageRange: "3-12 years",
     inStock: true
   },
   {
     id: "2", 
-    name: "Sustainable Denim Jeans",
-    description: "Classic fit jeans made from recycled denim with eco-friendly dyes",
-    price: 79.99,
-    originalPrice: 99.99,
-    image: menImage2,
-    rating: 4.8,
-    reviews: 89,
-    carbonFootprint: 'medium',
+    name: "Kids Reusable Water Bottle",
+    description: "BPA-free stainless steel water bottle with fun designs for school",
+    price: 19.99,
+    originalPrice: 29.99,
+    image: waterBottleImage,
+    rating: 4.7,
+    reviews: 203,
+    carbonFootprint: 'low',
     ecoFriendly: true,
+    childSafe: true,
+    ageRange: "5+ years",
     inStock: true
   },
   {
     id: "3",
-    name: "Eco-Friendly Casual Shirt",
-    description: "Smart casual shirt made from bamboo fiber blend",
-    price: 49.99,
-    image: menImage3,
-    rating: 4.3,
-    reviews: 67,
+    name: "Organic Cotton Kids T-Shirt",
+    description: "Super soft organic cotton t-shirt with eco-friendly dyes and fun prints",
+    price: 24.99,
+    image: organicShirtImage,
+    rating: 4.6,
+    reviews: 189,
     carbonFootprint: 'low',
     ecoFriendly: true,
+    childSafe: true,
+    ageRange: "2-14 years",
     inStock: true
   },
   {
     id: "4",
-    name: "Recycled Wool Sweater",
-    description: "Warm sweater made from 100% recycled wool with classic design",
-    price: 89.99,
-    originalPrice: 129.99,
-    image: menImage1,
-    rating: 4.6,
-    reviews: 178,
+    name: "Wooden Building Blocks Set",
+    description: "FSC-certified wooden blocks with non-toxic finish for creative play",
+    price: 34.99,
+    originalPrice: 49.99,
+    image: bambooBrushImage, // Using placeholder - in real app would have proper image
+    rating: 4.9,
+    reviews: 124,
     carbonFootprint: 'low',
     ecoFriendly: true,
+    childSafe: true,
+    ageRange: "3+ years",
     inStock: true
   },
   {
     id: "5",
-    name: "Hemp Canvas Shoes",
-    description: "Comfortable sneakers made from organic hemp with recycled rubber soles",
-    price: 74.99,
-    originalPrice: 99.99,
-    image: menImage2,
+    name: "Recycled Plastic Lunchbox",
+    description: "Durable lunchbox made from recycled ocean plastic with compartments",
+    price: 22.99,
+    image: waterBottleImage, // Using placeholder
     rating: 4.4,
-    reviews: 145,
-    carbonFootprint: 'low',
+    reviews: 98,
+    carbonFootprint: 'medium',
     ecoFriendly: true,
+    childSafe: true,
+    ageRange: "4+ years",
     inStock: true
   },
   {
     id: "6",
-    name: "Bamboo Fiber Polo Shirt",
-    description: "Moisture-wicking polo shirt made from sustainable bamboo fiber",
-    price: 54.99,
-    image: menImage3,
-    rating: 4.7,
-    reviews: 112,
-    carbonFootprint: 'low',
-    ecoFriendly: true,
-    inStock: true
-  },
-  {
-    id: "7",
-    name: "Organic Cotton Hoodie",
-    description: "Cozy hoodie made from fair-trade organic cotton with natural dyes",
-    price: 69.99,
-    originalPrice: 89.99,
-    image: menImage1,
+    name: "Natural Crayons Set",
+    description: "Non-toxic soy-based crayons in vibrant colors for safe creative expression",
+    price: 16.99,
+    originalPrice: 24.99,
+    image: organicShirtImage, // Using placeholder
     rating: 4.5,
-    reviews: 203,
+    reviews: 167,
     carbonFootprint: 'low',
     ecoFriendly: true,
-    inStock: true
-  },
-  {
-    id: "8",
-    name: "Recycled Polyester Jacket",
-    description: "Weather-resistant jacket made from recycled plastic bottles",
-    price: 119.99,
-    originalPrice: 159.99,
-    image: menImage2,
-    rating: 4.8,
-    reviews: 89,
-    carbonFootprint: 'medium',
-    ecoFriendly: true,
+    childSafe: true,
+    ageRange: "2+ years",
     inStock: true
   }
 ];
@@ -144,7 +133,7 @@ const getCarbonBadgeColor = (footprint: string) => {
   }
 };
 
-export default function MenPage() {
+export default function KidsPage() {
   const [products] = useState<Product[]>(mockProducts);
   const [sortBy, setSortBy] = useState<string>('popular');
   const { toast } = useToast();
@@ -166,13 +155,13 @@ export default function MenPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 py-12">
+      <div className="bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 py-12">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-            Men's Collection
+          <h1 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent">
+            Kids Collection
           </h1>
           <p className="text-center text-muted-foreground max-w-2xl mx-auto">
-            Discover our sustainable men's fashion collection featuring eco-friendly materials and ethical manufacturing.
+            Safe, eco-friendly products for children. Every item is tested for safety and made with sustainable materials.
           </p>
         </div>
       </div>
@@ -199,7 +188,8 @@ export default function MenPage() {
             <option value="price-low">Price: Low to High</option>
             <option value="price-high">Price: High to Low</option>
             <option value="rating">Highest Rated</option>
-            <option value="eco">Most Eco-Friendly</option>
+            <option value="age">By Age Range</option>
+            <option value="safety">Safety First</option>
           </select>
         </div>
       </div>
@@ -243,13 +233,34 @@ export default function MenPage() {
                     {product.carbonFootprint} CO₂
                   </Badge>
 
+                  {/* Child Safe Badge */}
+                  {product.childSafe && (
+                    <Badge 
+                      className="absolute top-12 left-3 bg-purple-500 text-white"
+                      data-testid={`safety-badge-${product.id}`}
+                    >
+                      <Shield className="h-3 w-3 mr-1" />
+                      Child Safe
+                    </Badge>
+                  )}
+
                   {/* Eco-Friendly Badge */}
                   {product.ecoFriendly && (
                     <Badge 
-                      className="absolute bottom-3 left-3 bg-green-500 text-white"
+                      className="absolute bottom-12 left-3 bg-green-500 text-white"
                       data-testid={`eco-badge-${product.id}`}
                     >
                       Eco-Friendly
+                    </Badge>
+                  )}
+
+                  {/* Age Range Badge */}
+                  {product.ageRange && (
+                    <Badge 
+                      className="absolute bottom-3 left-3 bg-blue-500 text-white"
+                      data-testid={`age-badge-${product.id}`}
+                    >
+                      {product.ageRange}
                     </Badge>
                   )}
 
@@ -302,7 +313,7 @@ export default function MenPage() {
 
                   {/* Add to Cart Button */}
                   <Button 
-                    className="w-full bg-green-600 hover:bg-green-700"
+                    className="w-full bg-orange-600 hover:bg-orange-700"
                     onClick={() => handleAddToCart(product)}
                     disabled={!product.inStock}
                     data-testid={`add-to-cart-${product.id}`}

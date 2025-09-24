@@ -68,6 +68,70 @@ const mockProducts: Product[] = [
     carbonFootprint: 'low',
     ecoFriendly: true,
     inStock: true
+  },
+  {
+    id: "4",
+    name: "Recycled Denim Skirt",
+    description: "Trendy A-line skirt made from upcycled denim with vintage wash",
+    price: 64.99,
+    originalPrice: 84.99,
+    image: womenImage1,
+    rating: 4.5,
+    reviews: 167,
+    carbonFootprint: 'medium',
+    ecoFriendly: true,
+    inStock: true
+  },
+  {
+    id: "5",
+    name: "Bamboo Yoga Leggings",
+    description: "High-waisted leggings made from bamboo fiber blend for comfort and stretch",
+    price: 49.99,
+    originalPrice: 69.99,
+    image: womenImage2,
+    rating: 4.8,
+    reviews: 234,
+    carbonFootprint: 'low',
+    ecoFriendly: true,
+    inStock: true
+  },
+  {
+    id: "6",
+    name: "TENCEL™ Cardigan",
+    description: "Lightweight cardigan made from sustainably sourced TENCEL™ fiber",
+    price: 79.99,
+    image: womenImage3,
+    rating: 4.6,
+    reviews: 145,
+    carbonFootprint: 'low',
+    ecoFriendly: true,
+    inStock: true
+  },
+  {
+    id: "7",
+    name: "Organic Linen Pants",
+    description: "Breathable wide-leg pants made from organic linen with natural dyes",
+    price: 74.99,
+    originalPrice: 99.99,
+    image: womenImage1,
+    rating: 4.4,
+    reviews: 128,
+    carbonFootprint: 'low',
+    ecoFriendly: true,
+    inStock: true
+  },
+  {
+    id: "8",
+    name: "Eco Sneakers",
+    description: "Stylish sneakers made from organic cotton and recycled rubber",
+    price: 89.99,
+    originalPrice: 119.99,
+    image: womenImage2,
+    rating: 4.7,
+    reviews: 198,
+    carbonFootprint: 'low',
+    ecoFriendly: true,
+    inStock: true
   }
 ];
 

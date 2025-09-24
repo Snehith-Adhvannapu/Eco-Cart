@@ -7,14 +7,15 @@ import {
   Heart, 
   Star, 
   Filter,
-  Leaf 
+  Leaf,
+  Home
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-// Import stock images
-import menImage1 from "@assets/stock_images/men's_clothing_fashi_2689d772.jpg";
-import menImage2 from "@assets/stock_images/men's_clothing_fashi_cfdc0fca.jpg";
-import menImage3 from "@assets/stock_images/men's_clothing_fashi_472eecc8.jpg";
+// Using existing generated images for home & kitchen products
+import bambooBrushImage from "@assets/generated_images/Bamboo_toothbrush_product_2cae6240.png";
+import waterBottleImage from "@assets/generated_images/Reusable_water_bottle_c4f791d9.png";
+import ecoToteImage from "@assets/generated_images/Eco_tote_bag_product_d8b19c56.png";
 
 interface Product {
   id: string;
@@ -28,109 +29,127 @@ interface Product {
   carbonFootprint: 'low' | 'medium' | 'high';
   ecoFriendly: boolean;
   inStock: boolean;
+  material?: string;
+  dishwasherSafe?: boolean;
 }
 
 const mockProducts: Product[] = [
   {
     id: "1",
-    name: "Organic Cotton T-Shirt",
-    description: "Comfortable organic cotton t-shirt made from sustainable materials",
-    price: 29.99,
+    name: "Bamboo Kitchen Utensil Set",
+    description: "Complete 6-piece bamboo utensil set including spoons, forks, and serving tools",
+    price: 28.99,
     originalPrice: 39.99,
-    image: menImage1,
-    rating: 4.5,
-    reviews: 124,
+    image: bambooBrushImage,
+    rating: 4.7,
+    reviews: 189,
     carbonFootprint: 'low',
     ecoFriendly: true,
+    material: "Sustainable Bamboo",
+    dishwasherSafe: false,
     inStock: true
   },
   {
     id: "2", 
-    name: "Sustainable Denim Jeans",
-    description: "Classic fit jeans made from recycled denim with eco-friendly dyes",
-    price: 79.99,
-    originalPrice: 99.99,
-    image: menImage2,
+    name: "Stainless Steel Food Storage Set",
+    description: "Leak-proof stainless steel containers perfect for meal prep and leftovers",
+    price: 45.99,
+    originalPrice: 65.99,
+    image: waterBottleImage,
     rating: 4.8,
-    reviews: 89,
-    carbonFootprint: 'medium',
+    reviews: 267,
+    carbonFootprint: 'low',
     ecoFriendly: true,
+    material: "304 Stainless Steel",
+    dishwasherSafe: true,
     inStock: true
   },
   {
     id: "3",
-    name: "Eco-Friendly Casual Shirt",
-    description: "Smart casual shirt made from bamboo fiber blend",
-    price: 49.99,
-    image: menImage3,
-    rating: 4.3,
-    reviews: 67,
+    name: "Organic Cotton Kitchen Towel Set",
+    description: "Super absorbent organic cotton kitchen towels with natural antimicrobial properties",
+    price: 24.99,
+    image: ecoToteImage,
+    rating: 4.6,
+    reviews: 145,
     carbonFootprint: 'low',
     ecoFriendly: true,
+    material: "100% Organic Cotton",
+    dishwasherSafe: false,
     inStock: true
   },
   {
     id: "4",
-    name: "Recycled Wool Sweater",
-    description: "Warm sweater made from 100% recycled wool with classic design",
-    price: 89.99,
-    originalPrice: 129.99,
-    image: menImage1,
-    rating: 4.6,
-    reviews: 178,
-    carbonFootprint: 'low',
+    name: "Glass Food Storage Jars",
+    description: "Airtight glass storage jars with bamboo lids for pantry organization",
+    price: 32.99,
+    originalPrice: 42.99,
+    image: waterBottleImage,
+    rating: 4.9,
+    reviews: 203,
+    carbonFootprint: 'medium',
     ecoFriendly: true,
+    material: "Borosilicate Glass",
+    dishwasherSafe: true,
     inStock: true
   },
   {
     id: "5",
-    name: "Hemp Canvas Shoes",
-    description: "Comfortable sneakers made from organic hemp with recycled rubber soles",
-    price: 74.99,
-    originalPrice: 99.99,
-    image: menImage2,
-    rating: 4.4,
-    reviews: 145,
+    name: "Compost Bin with Charcoal Filter",
+    description: "Countertop compost bin with replaceable charcoal filter to eliminate odors",
+    price: 39.99,
+    originalPrice: 55.99,
+    image: ecoToteImage,
+    rating: 4.5,
+    reviews: 178,
     carbonFootprint: 'low',
     ecoFriendly: true,
+    material: "Recycled Plastic",
+    dishwasherSafe: true,
     inStock: true
   },
   {
     id: "6",
-    name: "Bamboo Fiber Polo Shirt",
-    description: "Moisture-wicking polo shirt made from sustainable bamboo fiber",
-    price: 54.99,
-    image: menImage3,
-    rating: 4.7,
-    reviews: 112,
+    name: "Reusable Silicone Food Wraps",
+    description: "Plastic-free food storage wraps made from food-grade silicone",
+    price: 19.99,
+    originalPrice: 29.99,
+    image: bambooBrushImage,
+    rating: 4.4,
+    reviews: 124,
     carbonFootprint: 'low',
     ecoFriendly: true,
+    material: "Food-Grade Silicone",
+    dishwasherSafe: true,
     inStock: true
   },
   {
     id: "7",
-    name: "Organic Cotton Hoodie",
-    description: "Cozy hoodie made from fair-trade organic cotton with natural dyes",
-    price: 69.99,
-    originalPrice: 89.99,
-    image: menImage1,
-    rating: 4.5,
-    reviews: 203,
-    carbonFootprint: 'low',
+    name: "Cast Iron Dutch Oven",
+    description: "Pre-seasoned cast iron dutch oven perfect for one-pot meals and bread baking",
+    price: 89.99,
+    originalPrice: 129.99,
+    image: waterBottleImage,
+    rating: 4.8,
+    reviews: 312,
+    carbonFootprint: 'medium',
     ecoFriendly: true,
+    material: "Cast Iron",
+    dishwasherSafe: false,
     inStock: true
   },
   {
     id: "8",
-    name: "Recycled Polyester Jacket",
-    description: "Weather-resistant jacket made from recycled plastic bottles",
-    price: 119.99,
-    originalPrice: 159.99,
-    image: menImage2,
-    rating: 4.8,
-    reviews: 89,
-    carbonFootprint: 'medium',
+    name: "Bamboo Cutting Board Set",
+    description: "Three-piece bamboo cutting board set with juice grooves and easy-grip handles",
+    price: 42.99,
+    image: bambooBrushImage,
+    rating: 4.6,
+    reviews: 198,
+    carbonFootprint: 'low',
     ecoFriendly: true,
+    material: "Sustainable Bamboo",
+    dishwasherSafe: false,
     inStock: true
   }
 ];
@@ -144,7 +163,7 @@ const getCarbonBadgeColor = (footprint: string) => {
   }
 };
 
-export default function MenPage() {
+export default function HomeKitchenPage() {
   const [products] = useState<Product[]>(mockProducts);
   const [sortBy, setSortBy] = useState<string>('popular');
   const { toast } = useToast();
@@ -166,13 +185,13 @@ export default function MenPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 py-12">
+      <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 py-12">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-            Men's Collection
+          <h1 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+            Home & Kitchen Collection
           </h1>
           <p className="text-center text-muted-foreground max-w-2xl mx-auto">
-            Discover our sustainable men's fashion collection featuring eco-friendly materials and ethical manufacturing.
+            Transform your kitchen with sustainable, durable products that reduce waste and support eco-friendly living.
           </p>
         </div>
       </div>
@@ -200,6 +219,7 @@ export default function MenPage() {
             <option value="price-high">Price: High to Low</option>
             <option value="rating">Highest Rated</option>
             <option value="eco">Most Eco-Friendly</option>
+            <option value="material">By Material</option>
           </select>
         </div>
       </div>
@@ -243,13 +263,34 @@ export default function MenPage() {
                     {product.carbonFootprint} CO₂
                   </Badge>
 
+                  {/* Dishwasher Safe Badge */}
+                  {product.dishwasherSafe && (
+                    <Badge 
+                      className="absolute top-12 left-3 bg-blue-500 text-white"
+                      data-testid={`dishwasher-badge-${product.id}`}
+                    >
+                      <Home className="h-3 w-3 mr-1" />
+                      Dishwasher Safe
+                    </Badge>
+                  )}
+
                   {/* Eco-Friendly Badge */}
                   {product.ecoFriendly && (
                     <Badge 
-                      className="absolute bottom-3 left-3 bg-green-500 text-white"
+                      className="absolute bottom-12 left-3 bg-green-500 text-white"
                       data-testid={`eco-badge-${product.id}`}
                     >
                       Eco-Friendly
+                    </Badge>
+                  )}
+
+                  {/* Material Badge */}
+                  {product.material && (
+                    <Badge 
+                      className="absolute bottom-3 left-3 bg-purple-500 text-white text-xs"
+                      data-testid={`material-badge-${product.id}`}
+                    >
+                      {product.material}
                     </Badge>
                   )}
 
@@ -302,7 +343,7 @@ export default function MenPage() {
 
                   {/* Add to Cart Button */}
                   <Button 
-                    className="w-full bg-green-600 hover:bg-green-700"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700"
                     onClick={() => handleAddToCart(product)}
                     disabled={!product.inStock}
                     data-testid={`add-to-cart-${product.id}`}

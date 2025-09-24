@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -38,7 +39,7 @@ interface MainCategory {
 }
 
 interface MainNavigationProps {
-  onCategorySelect: (categoryId: string, subcategoryId?: string) => void;
+  onCategorySelect?: (categoryId: string, subcategoryId?: string) => void;
 }
 
 export default function MainNavigation({ onCategorySelect }: MainNavigationProps) {
@@ -201,12 +202,33 @@ export default function MainNavigation({ onCategorySelect }: MainNavigationProps
                 
                 <DropdownMenuSeparator />
                 
+                {/* Add main category link for categories with dedicated pages */}
+                {(category.id === 'men' || category.id === 'women' || category.id === 'electronics' || category.id === 'kids' || category.id === 'home-kitchen') && (
+                  <Link href={`/${category.id}`}>
+                    <DropdownMenuItem
+                      className="flex items-center justify-between cursor-pointer hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors font-medium"
+                      data-testid={`nav-${category.id}-main`}
+                    >
+                      <span>All {category.name}</span>
+                      <Badge 
+                        variant="default" 
+                        className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs"
+                      >
+                        View All
+                      </Badge>
+                    </DropdownMenuItem>
+                  </Link>
+                )}
+                
                 <div className="space-y-1 mt-3">
                   {category.subcategories.map((subcategory) => (
                     <DropdownMenuItem
                       key={subcategory.id}
                       className="flex items-center justify-between cursor-pointer hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors"
-                      onClick={() => onCategorySelect(category.id, subcategory.id)}
+                      onClick={() => {
+                        // Always allow subcategory selection for filtering
+                        onCategorySelect?.(category.id, subcategory.id);
+                      }}
                       data-testid={`nav-${category.id}-${subcategory.id}`}
                     >
                       <span>{subcategory.name}</span>

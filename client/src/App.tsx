@@ -16,6 +16,13 @@ import CartSidebar from "@/components/CartSidebar";
 import VoiceModal from "@/components/VoiceModal";
 import SearchFilters from "@/components/SearchFilters";
 import Footer from "@/components/Footer";
+
+// Import page components
+import ElectronicsPage from "@/pages/electronics-page";
+import MenPage from "@/pages/men-page";
+import WomenPage from "@/pages/women-page";
+import KidsPage from "@/pages/kids-page";
+import HomeKitchenPage from "@/pages/home-kitchen-page";
 import NotFound from "@/pages/not-found";
 
 // Import images for cart items
@@ -261,6 +268,11 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
+      <Route path="/electronics" component={ElectronicsPage} />
+      <Route path="/men" component={MenPage} />
+      <Route path="/women" component={WomenPage} />
+      <Route path="/kids" component={KidsPage} />
+      <Route path="/home-kitchen" component={HomeKitchenPage} />
       <Route component={NotFound} />
     </Switch>
   );
