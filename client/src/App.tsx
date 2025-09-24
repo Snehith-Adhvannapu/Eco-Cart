@@ -23,6 +23,8 @@ import MenPage from "@/pages/men-page";
 import WomenPage from "@/pages/women-page";
 import KidsPage from "@/pages/kids-page";
 import HomeKitchenPage from "@/pages/home-kitchen-page";
+import LoginPage from "@/pages/login-page";
+import SignupPage from "@/pages/signup-page";
 import NotFound from "@/pages/not-found";
 
 // Import images for cart items
@@ -268,6 +270,8 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/signup" component={SignupPage} />
       <Route path="/electronics" component={ElectronicsPage} />
       <Route path="/men" component={MenPage} />
       <Route path="/women" component={WomenPage} />

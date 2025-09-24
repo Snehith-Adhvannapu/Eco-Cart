@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Search, Mic, ShoppingCart, User, Sun, Moon } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Search, Mic, ShoppingCart, User, Sun, Moon, LogOut, LogIn } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
 
 interface HeaderProps {
   cartCount: number;
@@ -22,6 +25,7 @@ export default function Header({
   onThemeToggle 
 }: HeaderProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const { user, isAuthenticated, logout, isLoggingOut } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
@@ -67,13 +71,55 @@ export default function Header({
             {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
           
-          <Button
-            data-testid="button-profile"
-            size="icon"
-            variant="ghost"
-          >
-            <User className="h-4 w-4" />
-          </Button>
+          {/* Authentication */}
+          {isAuthenticated ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  data-testid="button-user-menu"
+                  size="icon"
+                  variant="ghost"
+                >
+                  <User className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem disabled>
+                  <span className="font-medium">{user?.username}</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem 
+                  data-testid="button-logout"
+                  onClick={logout}
+                  disabled={isLoggingOut}
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
+                  {isLoggingOut ? "Logging out..." : "Logout"}
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <div className="flex items-center gap-2">
+              <Link href="/login">
+                <Button
+                  data-testid="button-login"
+                  size="sm"
+                  variant="ghost"
+                >
+                  <LogIn className="mr-2 h-4 w-4" />
+                  Login
+                </Button>
+              </Link>
+              <Link href="/signup">
+                <Button
+                  data-testid="button-signup"
+                  size="sm"
+                >
+                  Sign Up
+                </Button>
+              </Link>
+            </div>
+          )}
 
           <Button
             data-testid="button-cart"

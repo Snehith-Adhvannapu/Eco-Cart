@@ -33,6 +33,7 @@ export function setupAuth(app: Express) {
       secure: process.env.NODE_ENV === 'production',
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      sameSite: 'lax', // CSRF protection
     },
   };
 
@@ -82,10 +83,14 @@ export function setupAuth(app: Express) {
         password: await hashPassword(validatedData.password),
       });
 
-      req.login(user, (err) => {
+      // Regenerate session to prevent session fixation
+      req.session.regenerate((err) => {
         if (err) return next(err);
-        const { password, ...userWithoutPassword } = user;
-        res.status(201).json(userWithoutPassword);
+        req.login(user, (err) => {
+          if (err) return next(err);
+          const { password, ...userWithoutPassword } = user;
+          res.status(201).json(userWithoutPassword);
+        });
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -103,10 +108,14 @@ export function setupAuth(app: Express) {
         return res.status(401).json({ error: info?.message || 'Authentication failed' });
       }
       
-      req.login(user, (err) => {
+      // Regenerate session to prevent session fixation
+      req.session.regenerate((err) => {
         if (err) return next(err);
-        const { password, ...userWithoutPassword } = user;
-        res.status(200).json(userWithoutPassword);
+        req.login(user, (err) => {
+          if (err) return next(err);
+          const { password, ...userWithoutPassword } = user;
+          res.status(200).json(userWithoutPassword);
+        });
       });
     })(req, res, next);
   });
@@ -115,7 +124,12 @@ export function setupAuth(app: Express) {
   app.post("/api/logout", (req, res, next) => {
     req.logout((err) => {
       if (err) return next(err);
-      res.sendStatus(200);
+      // Destroy session to prevent session fixation
+      req.session.destroy((err) => {
+        if (err) return next(err);
+        res.clearCookie('connect.sid'); // Clear session cookie
+        res.sendStatus(200);
+      });
     });
   });
 
