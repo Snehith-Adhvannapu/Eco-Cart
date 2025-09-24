@@ -42,21 +42,22 @@ export default function Header({
             placeholder="Search eco-friendly products..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 pr-14"
+            className="pl-10 pr-4"
           />
-          <Button
-            data-testid="button-voice-search"
-            size="icon"
-            variant={isVoiceActive ? "default" : "ghost"}
-            className={`absolute right-2 top-1/2 transform -translate-y-1/2 h-8 w-8 ${isVoiceActive ? 'bg-green-500 hover:bg-green-600' : 'hover:bg-green-100 dark:hover:bg-green-900'}`}
-            onClick={onVoiceToggle}
-          >
-            <Mic className="h-4 w-4" />
-          </Button>
         </div>
 
         {/* Navigation Actions */}
         <div className="flex items-center gap-2">
+          <Button
+            data-testid="button-voice-search"
+            size="icon"
+            variant={isVoiceActive ? "default" : "ghost"}
+            className={`${isVoiceActive ? 'bg-green-500 hover:bg-green-600 text-white' : 'hover:bg-green-100 dark:hover:bg-green-900'}`}
+            onClick={onVoiceToggle}
+          >
+            <Mic className="h-4 w-4" />
+          </Button>
+          
           <Button
             data-testid="button-theme-toggle"
             size="icon"
