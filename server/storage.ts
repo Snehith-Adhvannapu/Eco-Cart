@@ -159,6 +159,11 @@ export class MemStorage implements IStorage {
     const product: Product = { 
       ...insertProduct,
       description: insertProduct.description || null,
+      rating: insertProduct.rating || null,
+      reviewCount: insertProduct.reviewCount || null,
+      inStock: insertProduct.inStock !== undefined ? insertProduct.inStock : null,
+      ecoFriendly: insertProduct.ecoFriendly !== undefined ? insertProduct.ecoFriendly : null,
+      carbonFootprint: insertProduct.carbonFootprint || null,
       id,
       createdAt: new Date()
     };

@@ -117,7 +117,7 @@ export default function WomenPage() {
       <div className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm" className="gap-2">
+            <Button variant="outline" size="sm" className="gap-2" data-testid="button-filters">
               <Filter className="h-4 w-4" />
               Filters
             </Button>
@@ -165,7 +165,7 @@ export default function WomenPage() {
                     variant="secondary"
                     className="absolute top-3 right-3 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 hover:bg-white"
                     onClick={() => handleWishlist(product)}
-                    data-testid={`wishlist-${product.id}`}
+                    data-testid={`button-wishlist-${product.id}`}
                   >
                     <Heart className="h-4 w-4" />
                   </Button>
