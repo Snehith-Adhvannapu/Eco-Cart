@@ -245,19 +245,26 @@
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
+    background: hsl(var(--muted));
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-400 dark:bg-gray-500;
+    background: hsl(var(--muted-foreground) / 0.5);
   }
   
   ::-webkit-scrollbar-corner {
-    @apply bg-gray-100 dark:bg-gray-800;
+    background: hsl(var(--muted));
+  }
+
+  /* Firefox scrollbar styling */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) hsl(var(--muted));
   }
 
   /* Hide ugly search cancel button in Chrome until we can style it properly */

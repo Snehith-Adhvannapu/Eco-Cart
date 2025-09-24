@@ -7,9 +7,11 @@ import {
   Heart, 
   Star, 
   Filter,
-  Leaf 
+  Leaf,
+  ArrowLeft
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "wouter";
 
 // Import stock images
 import womenImage1 from "@assets/stock_images/women's_fashion_clot_69ea4535.jpg";
@@ -165,6 +167,22 @@ export default function WomenPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Back Navigation */}
+      <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <Link href="/">
+            <Button 
+              variant="ghost" 
+              className="flex items-center gap-2 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors"
+              data-testid="button-back-home"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+      </div>
+
       {/* Header Section */}
       <div className="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 py-12">
         <div className="container mx-auto px-4">

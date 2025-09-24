@@ -8,9 +8,11 @@ import {
   Star, 
   Filter,
   Leaf,
-  Shield
+  Shield,
+  ArrowLeft
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "wouter";
 
 // We'll use some of the existing images for now - this demonstrates real product usage
 import bambooBrushImage from "@assets/generated_images/Bamboo_toothbrush_product_2cae6240.png";
@@ -154,6 +156,22 @@ export default function KidsPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Back Navigation */}
+      <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <Link href="/">
+            <Button 
+              variant="ghost" 
+              className="flex items-center gap-2 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors"
+              data-testid="button-back-home"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+      </div>
+
       {/* Header Section */}
       <div className="bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 py-12">
         <div className="container mx-auto px-4">

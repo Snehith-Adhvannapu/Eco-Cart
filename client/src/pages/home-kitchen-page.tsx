@@ -8,9 +8,11 @@ import {
   Star, 
   Filter,
   Leaf,
-  Home
+  Home,
+  ArrowLeft
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "wouter";
 
 // Using existing generated images for home & kitchen products
 import bambooBrushImage from "@assets/generated_images/Bamboo_toothbrush_product_2cae6240.png";
@@ -184,6 +186,22 @@ export default function HomeKitchenPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Back Navigation */}
+      <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <Link href="/">
+            <Button 
+              variant="ghost" 
+              className="flex items-center gap-2 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors"
+              data-testid="button-back-home"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+      </div>
+
       {/* Header Section */}
       <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 py-12">
         <div className="container mx-auto px-4">
