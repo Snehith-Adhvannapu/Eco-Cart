@@ -1,4 +1,4 @@
-# EcoCart Design Guidelines
+# Smart Cart Design Guidelines
 
 ## Design Approach
 **Reference-Based Approach**: Drawing inspiration from modern e-commerce leaders like Shopify and sustainable brands like Patagonia, focusing on clean aesthetics with eco-conscious visual language.

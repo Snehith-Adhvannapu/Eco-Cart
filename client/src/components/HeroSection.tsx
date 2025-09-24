@@ -24,7 +24,7 @@ export default function HeroSection({ onStartVoiceShopping }: HeroSectionProps) 
           {/* Main Title */}
           <div className="space-y-4">
             <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
-              EcoCart – Shop Smart. 
+              Smart Cart – Shop Smart. 
               <span className="text-primary block">Shop Green.</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

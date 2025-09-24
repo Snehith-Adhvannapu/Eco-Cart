@@ -10,9 +10,9 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">E</span>
+                <span className="text-primary-foreground font-bold text-sm">S</span>
               </div>
-              <span className="font-bold text-xl text-foreground">EcoCart</span>
+              <span className="font-bold text-xl text-foreground">Smart Cart</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Making sustainable shopping accessible through voice-powered experiences and carbon footprint tracking.
@@ -60,7 +60,7 @@ export default function Footer() {
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span>© 2024 EcoCart. All rights reserved.</span>
+            <span>© 2024 Smart Cart. All rights reserved.</span>
             <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
           </div>

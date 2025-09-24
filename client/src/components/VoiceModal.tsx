@@ -71,7 +71,7 @@ export default function VoiceModal({ isOpen, onClose, onVoiceCommand }: VoiceMod
               <div>
                 <h2 className="text-lg font-semibold">Voice Shopping</h2>
                 <p className="text-sm text-muted-foreground">
-                  Say "Hey EcoCart" to start
+                  Say "Hey Smart Cart" to start
                 </p>
               </div>
             </div>
