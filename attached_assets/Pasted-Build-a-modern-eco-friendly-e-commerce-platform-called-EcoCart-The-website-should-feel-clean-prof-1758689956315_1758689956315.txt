@@ -1,0 +1,189 @@
+Build a modern, eco-friendly e-commerce platform called EcoCart. The website should feel clean, professional, and eco-conscious, using forest green, light green, and yellow as brand colors. Use soft, minimal design with rounded corners, smooth shadows, and subtle animations. The site should be fully responsive, accessible, and hackathon-ready.
+
+Homepage
+
+Hero section:
+
+Big title: “EcoCart – Shop Smart. Shop Green.”
+
+Subtitle: “Voice-powered sustainable shopping for everyone.”
+
+Primary button: “Start Voice Shopping”
+
+Eco Stats badges:
+
+Show metrics like “Total CO₂ Saved,” “Trees Planted,” “Customers Using EcoCart.”
+
+Animations for counters counting up on page load.
+
+Featured product carousel:
+
+Highlight eco-friendly products with carbon footprint badges.
+
+Smooth sliding animations.
+
+Category shortcuts (Bags, Clothing, Bottles, Electronics, etc.)
+
+Optional eco tips or sustainability messages in subtle banners.
+
+Product Grid
+
+Display products in cards with smooth hover animations.
+
+Each card includes:
+
+Product image (placeholder if missing)
+
+Name & brand
+
+Price
+
+Carbon footprint badge (green for low, yellow for medium, red for high)
+
+Ratings & reviews
+
+Add to cart button
+
+Wishlist button
+
+Quick view modal
+
+Tags: “Eco-Friendly”, “Best Seller”, “New Arrival”
+
+Compare feature to compare eco score, price, and features.
+
+Example products (with badges based on CO₂):
+
+Eco Tote Bag – ₹299 – 0.8kg CO₂ (Green)
+
+Organic T-shirt – ₹499 – 1.2kg CO₂ (Yellow)
+
+Bamboo Toothbrush – ₹150 – 0.3kg CO₂ (Green)
+
+Reusable Bottle – ₹399 – 0.5kg CO₂ (Green)
+
+Plastic Bottle – ₹99 – 5.0kg CO₂ (Red)
+
+Fast Fashion Shirt – ₹399 – 4.0kg CO₂ (Red)
+
+Cart Sidebar
+
+Always-visible on the right, with smooth slide-in/out animation.
+
+Shows:
+
+List of added items (image, name, price, quantity selector)
+
+Carbon footprint per item
+
+Total cost and total carbon footprint
+
+Simple progress bar for eco impact
+
+Buttons:
+
+“Offset Now 🌱” → modal with: “Your cart emits X kg CO₂. Offset it for ₹Y by planting a tree.”
+
+“Checkout” → support multiple payment options
+
+Supports promo codes, discounts, and reward points.
+
+Voice Shopping
+
+Mic button above products to start voice mode.
+
+Command: “Hey EcoCart” → activates voice shopping with: “Voice shopping activated. What do you want to buy?”
+
+Voice commands to filter product list (e.g., “Show bottles”)
+
+Text-to-speech:
+
+Reads product names and prices
+
+Confirms items added to cart
+
+Voice-guided checkout and cart navigation
+
+Accessibility: screen-reader compatible with voice navigation.
+
+Search & Filters
+
+Search bar with autocomplete suggestions.
+
+Filters: category, price range, brand, eco-rating, carbon footprint.
+
+Sorting: Price low → high, popularity, eco-score, rating.
+
+Infinite scroll or pagination.
+
+Product comparison charts with animated highlights.
+
+User Account
+
+Sign-up/login (email, Google, social login)
+
+Dashboard:
+
+Order history
+
+Wishlist & saved carts
+
+Eco-impact dashboard: total CO₂ saved, trees planted
+
+Notifications for deals & eco-friendly tips
+
+Personalized product recommendations
+
+Advanced Features
+
+Flash sales & limited offers
+
+Multi-currency & localization
+
+Reviews & ratings
+
+Q&A for products
+
+Multi-vendor support (optional)
+
+Loyalty/reward points
+
+Social sharing for products
+
+Shipping estimates
+
+Return/refund system
+
+Dark mode toggle
+
+Gamification: earn points for eco-friendly purchases
+
+Leaderboard for sustainability (optional)
+
+PWA-ready
+
+Animations & Interactivity
+
+Smooth hover and card flip animations
+
+Modal fade-ins for cart and quick view
+
+Animated counters for eco stats
+
+Button micro-animations
+
+Slide-in transitions for category filters
+
+Infinite scroll fade-in for products
+
+Accessibility & Responsiveness
+
+Mobile-first design
+
+Keyboard navigation
+
+ARIA labels for screen readers
+
+High-contrast mode available
+
+Voice navigation support
