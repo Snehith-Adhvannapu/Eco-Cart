@@ -91,20 +91,20 @@ export default function ProductCard({
 
           {/* Carbon Footprint Badge */}
           <Badge 
-            className={`absolute top-2 left-2 ${getCarbonBadgeColor(carbonFootprint)} text-white backdrop-blur-sm border-white/20 shadow-lg animate-pulse hover:animate-none transition-all duration-200 hover:scale-105`}
+            className={`absolute top-2 left-2 ${getCarbonBadgeColor(carbonFootprint)} text-white backdrop-blur-sm border-white/20 shadow-lg animate-pulse hover:animate-none transition-all duration-200 hover:scale-105 z-10`}
             data-testid={`badge-carbon-${id}`}
           >
             🌱 {carbonFootprint}kg CO₂
           </Badge>
 
-          {/* Tags */}
+          {/* Tags - positioned to avoid overlap with carbon badge */}
           {tags.length > 0 && (
-            <div className="absolute bottom-2 left-2 flex gap-1">
+            <div className="absolute bottom-2 left-2 flex flex-wrap gap-1 max-w-[calc(100%-1rem)] z-10">
               {tags.slice(0, 2).map((tag, index) => (
                 <Badge
                   key={index}
                   variant="secondary"
-                  className="text-xs"
+                  className="text-xs backdrop-blur-sm bg-white/90 dark:bg-black/90 border-white/20 shadow-sm"
                   data-testid={`tag-${tag.toLowerCase().replace(' ', '-')}-${id}`}
                 >
                   {tag}
